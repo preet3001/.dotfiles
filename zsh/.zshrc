@@ -44,4 +44,9 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh.json)"
 fi
+#setting nvim as default editor
+export EDITOR=nvim
+export VISUAL="$EDITOR"
 
+alias vi=nvim
+alias vim=nvim
