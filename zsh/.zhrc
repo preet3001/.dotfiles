@@ -1,0 +1,9 @@
+PATH="$PATH:$HOME/development/flutter/bin"
+PATH="$PATH:$HOME/development/flutter/bin/cache/dart-sdk/bin"
+PATH="$PATH":"$HOME/development/flutter/.pub-cache/bin"
+export PATH
+export PYTHONPATH = "/Applications/Python\ 3.10/"
+
+
+
+
