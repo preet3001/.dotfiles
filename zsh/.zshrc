@@ -39,6 +39,9 @@ bindkey "^[[B" history-search-forward
 #autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+#fzf
+source <(fzf --zsh)
+alias ivn='nvim $(fzf -m --preview="bat --color=always {}")'
 #Oh-my-posh
 #disable in apple term
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
