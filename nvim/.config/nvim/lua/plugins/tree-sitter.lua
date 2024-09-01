@@ -31,5 +31,12 @@ return {
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-	{ "nvim-treesitter/nvim-treesitter-context" },
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			vim.keymap.set("n", "[jo", function()
+				require("treesitter-context").go_to_context(vim.v.count1)
+			end, { silent = true, desc = "[J]ump [O]ut of current context" })
+		end,
+	},
 }
