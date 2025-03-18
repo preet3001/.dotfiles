@@ -19,7 +19,8 @@ return {
 				vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
 				vim.fn.expand("$HOME/.pub-cache"),
 				vim.fn.expand("/opt/homebrew/"),
-				vim.fn.expand("$HOME/development/flutter/"),
+				vim.fn.expand("$HOME/fvm/default/"),
+				vim.fn.expand("$HOME/fvm/default/.pub-cache"),
 			}
 
 			lsp_config["dartls"].setup({
