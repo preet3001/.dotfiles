@@ -22,7 +22,6 @@ return {
 				vim.fn.expand("$HOME/fvm/default/"),
 				vim.fn.expand("$HOME/fvm/default/.pub-cache"),
 			}
-
 			lsp_config["dartls"].setup({
 				capabilities = capabilities,
 				cmd = {
@@ -55,7 +54,7 @@ return {
 					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
@@ -146,6 +145,7 @@ return {
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			---@diagnostic disable-next-line: missing-fields
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
@@ -194,6 +194,14 @@ return {
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
 				javascript = { { "prettierd", "prettier" } },
+				dart = { "dart_custom_format" },
+			},
+			formatters = {
+				dart_custom_format = {
+					command = "dart",
+					args = { "format", "--line-length", "100", "$FILENAME" },
+					stdin = false,
+				},
 			},
 		},
 	},
