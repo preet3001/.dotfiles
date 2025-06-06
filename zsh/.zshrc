@@ -10,6 +10,11 @@ PATH="$PATH":"$HOME/.pub-cache/bin"
 export GEM_HOME="$HOME/.rbenv/versions/3.2.2"
 export PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
+export MANPAGER="nvim +Man!"
+export GOPRIVATE="github.com/MathGaps/*,go.buf.build"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
 eval "$(rbenv init - zsh)"
 ## [Completion] 
 ## Completion scripts setup. Remove the following line to uninstall
@@ -54,3 +59,9 @@ export VISUAL="$EDITOR"
 
 alias vi=nvim
 alias vim=nvim
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/preetsingh/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/preetsingh/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/preetsingh/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/preetsingh/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

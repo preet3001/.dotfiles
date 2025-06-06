@@ -110,7 +110,15 @@ return {
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			local servers = {
 				clangd = {},
-				gopls = {},
+				gopls = {
+					settings = {
+						gopls = {
+							formatting = {
+								maxLineLength = 100,
+							},
+						},
+					},
+				},
 				pyright = {},
 				rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -197,6 +205,26 @@ return {
 				dart = { "dart_custom_format" },
 			},
 			formatters = {
+				-- Lua formatter: stylua
+				stylua = {
+					command = "stylua",
+					args = { "--column-width", "100", "-" },
+					stdin = true,
+				},
+
+				-- JavaScript formatter: prettier
+				prettier = {
+					command = "prettier",
+					args = { "--print-width", "100" },
+					stdin = true,
+				},
+
+				-- JS formatter: prettierd (usually wraps prettier)
+				prettierd = {
+					command = "prettierd",
+					args = { "--print-width", "100" },
+					stdin = true,
+				},
 				dart_custom_format = {
 					command = "dart",
 					args = { "format", "--line-length", "100", "$FILENAME" },

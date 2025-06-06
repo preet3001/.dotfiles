@@ -1,7 +1,15 @@
 -- Adds git related signs to the gutter, as well as utilities for managing changes
 return {
 
-	{ "tpope/vim-fugitive" },
+	{
+		"tpope/vim-fugitive",
+		keymap = {
+			["<leader>gD"] = { "<cmd>Gdiffsplit!<cr>", desc = "Git diff" },
+			vim.keymap.set("n", "<leader>gcl", ":Gclog -- %<CR>", { desc = "Git log for current file" }),
+			-- set git status
+			vim.keymap.set("n", "<leader>gs", ":G<CR>", { desc = "Git status" }),
+		},
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -40,6 +48,7 @@ return {
 					gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 				end, { desc = "reset git hunk" })
 				-- normal mode
+				-- map git status
 				map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" })
 				map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" })
 				map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "git [S]tage buffer" })

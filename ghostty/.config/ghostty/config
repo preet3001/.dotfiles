@@ -2,3 +2,4 @@ theme = catppuccin-mocha
 font-family = MesloLGS Nerd Font Mono
 cursor-style = block
 shell-integration-features = no-cursor
+font-size = 12
