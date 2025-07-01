@@ -1,0 +1,49 @@
+
+(defcfg
+  input (low-level)
+  output (kext)
+  process-unmapped-keys yes
+)
+
+(defsrc
+  q w e r t y u i o p
+  a s d f g h j k l ;
+  z x c v b n m
+  space enter escape tab
+  left right up down
+  lshift rshift lctrl rctrl lalt ralt lmeta rmeta
+)
+
+(defalias
+  lctl (left-control)
+  lsft (left-shift)
+  lalt (left-alt)
+  lgui (left-meta)
+  rctl (right-control)
+  rsft (right-shift)
+  ralt (right-alt)
+  rgui (right-meta)
+)
+
+(deflayer base
+  q w e r t y u i o p
+
+  ;; Left home row mods
+  (tap-hold 200 a lctl)
+  (tap-hold 200 s lalt)
+  (tap-hold 200 d lgui)
+  (tap-hold 200 f lsft)
+  g
+
+  ;; Right home row mods
+  h
+  (tap-hold 200 j rsft)
+  (tap-hold 200 k rgui)
+  (tap-hold 200 l ralt)
+  (tap-hold 200 ; rctl)
+
+  z x c v b n m
+  space enter escape tab
+  left right up down
+  lshift rshift lctrl rctrl lalt ralt lmeta rmeta
+)

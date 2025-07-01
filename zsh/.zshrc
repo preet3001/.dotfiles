@@ -42,6 +42,9 @@ setopt hist_verify
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
+#vi-mode
+source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 #autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -65,3 +68,4 @@ if [ -f '/Users/preetsingh/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/preetsingh/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/preetsingh/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
